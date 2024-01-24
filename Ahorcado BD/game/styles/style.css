@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+
+body {
+    text-align: center;
+    background-image: url(../images/pizarra.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Handlee', cursive, Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+#ahorcado-img {
+    width: 30%;
+    height: 50%;
+}
+
+h1 {
+    font-size: xxx-large;
+}
+
+#selectCat {
+    text-align: center;
+}
+
+#datos {
+    font-size: medium;
+    margin-bottom: 5vh;
+}
+
+#ultimasPartidas {
+    width: 100%;
+    margin-top: 10vh;
+}
+
+#formModi {
+    font-size: medium;
+}
+
+#modalEditar > *{
+    color: black;
+}
+
+ul > li {
+    color: black;
+}
+#instrucciones{
+    position: fixed;
+    text-align: center;
+    bottom: 5px;
+    left: 2px;
+}
+
+.verde{
+    color: green;
+}
+.rojo{
+    color: red;
+}
+
+#inst {
+    font-size: x-large;
+}
+
+#selectCat {
+    background-color: rgb(104, 103, 103);
+    color: white;
+    width: 30vh;
+    margin: 0px auto;
+}
+
+option:disabled {
+    color: white;
+}
+
+#teclado {
+    width: 70%;
+    align-items: center;
+    display: inline-block;
+}
+#tecladoBoton{
+    margin-right: 1vh;
+    margin-top: 1vh;
+}
+
+#imagen {
+    display: block;
+}
+
+#mascara {
+    font-size: xxx-large;
+}
+
+.mt-4 {
+    border: 1px solid grey;
+    width: 35vh;
+    margin: 0px auto;
+    padding: 1.5px;
+    border-radius: 5px;
+    box-shadow: inset;
+}
+
+#lastGame {
+    margin-top: 2vh;
+}
+
+#botonJuego {
+    margin-top: 2vh;
+}
+
+#comprobar {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#adivinanza {
+    background-color: rgba(67, 67, 67, 0.2);
+    color: white;
+    width: 20vh;
+    margin: 0px auto;
+}
+#formSelectCat{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

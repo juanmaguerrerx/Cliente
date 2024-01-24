@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <script src="main.js"></script>
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        div{
+            border: 1px solid black;
+            width: 150px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="calculadora" id="formulario">
+        <input type="number" name="numero1">
+        <input type="number" name="numero2">
+        <input type="button" onclick="op(this)" value="+">
+        <input type="button" onclick="op(this)" value="-">
+        <input type="button" onclick="op(this)" value="*">
+        <input type="button" onclick="op(this)" value="/">
+    </form>
+    <br>
+    <div><p id="resultado"></p></div>
+</body>
+
+</html>

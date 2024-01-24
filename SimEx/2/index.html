@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 | Facturas</title>
+</head>
+<body>
+    <h1>Facturas</h1>
+
+    <label for="codigo">Codigo: <input type="text" id="codigo" ></label>
+    <label for="descripcion">Descripción: <input type="text" id="descripcion"></label>
+    <label for="cantidad">Cantidad: <input type="number" id="cantidad" value="1"></label>
+    <label for="precio">Precio: <input type="number" id="precio"></label>
+    Subtotal: <label id="subtotal"></label>
+    <button onclick="insertar()">Insertar</button>
+
+    <div id="productos"></div>
+
+    <table id="catalogo">
+
+    </table>
+
+    <script src="main.js"></script>
+</body>
+</html>

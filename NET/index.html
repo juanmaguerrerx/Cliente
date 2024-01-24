@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="shortcut icon" href="images/Home_Icon.svg.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <div id="cabecera">
+            <h1 id="titulo"><a href="index.html" class="inicio">INICIO</a></h1>
+            <h4 id="subtitulo">Juanma Guerrero - 2 DAW</h4>
+        </div>
+    </header>
+
+    <div id="accordion">
+        <h2>Ahorcado</h2>
+        <div class="actividad">
+            <p>1ª Practica 1 Evaluación de un juego simple de Ahorcado.</p>
+            <br>
+            <p><a href="https://docs.google.com/document/d/1RUT0Vo6jhGvqZ9zJwALXI8UA0fM2QW1cPj-DBrPrWgo/edit"
+                    target="_blank">Link al enunciado</a></p>
+            <a href="Ahorcado/index.html" target="_blank"><button>Ver Práctica</button></a>
+        </div>
+        <h2>Ahorcado - Base de Datos</h2>
+        <div class="actividad">
+            <p>2ª Practica 1 Evaluación de un juego de Ahorcado con sesiones de usuario, roles, etc.</p>
+            <br>
+            <p><a href="https://docs.google.com/document/d/1nM7IJaBFPl5Bu_4Z2TXGl1-orYlEStaAQfeTfsQEbWk/edit" target="_blank">Link al enunciado</a></p>
+            <a href="Ahorcado BD/index.html" target="_blank"><button>Ver Práctica</button></a>
+        </div>
+        
+    </div>
+    <script>
+        $(function () {
+            $("#accordion").accordion({
+                collapsible:true
+            }); 
+        });
+    </script>
+</body>
+
+</html>

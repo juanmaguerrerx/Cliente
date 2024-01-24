@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocho</title>
+    <script src="main.js"></script>
+    <style>
+        #estadisticas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Crear una página web con dos áreas de texto separadas por un botón. 
+        En la primera debemos escribir un texto y al pulsar el botón en el segundo área de texto 
+        se debe cargar información estadística acerca del número de vocales que aparece en el texto. 
+        Modificar el ejercicio para que tenga en cuenta cualquier letra 
+        y que además del número de veces que aparece nos muestre el porcentaje con respecto al total de caracteres. -->
+
+        <textarea name="texto" id="text" cols="30" rows="10" placeholder="Introduce el texto"></textarea>
+        <button onclick="stats()">Pulsa aquí</button>
+        <div><p id="estadisticas"></p></div>
+
+        
+</body>
+</html>

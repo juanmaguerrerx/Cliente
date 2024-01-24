@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <title>Provincias</title>
+    <style>
+        body {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            border-bottom: 1px solid white;
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 121, 84, 1) 35%, rgba(0, 212, 255, 1) 100%);
+        }
+
+        select {
+            background-color:transparent;
+            color: gray;
+            border: 1px solid white;
+            width: 200px;
+            height: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .options {
+            color: white;
+            background-color: transparent;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Form Prov</h1>
+    <p>Provincias: <select name="provincias" id="provincias" onchange="pueblos()">
+            <option value="" selected disabled id="prov">PROVINCIAS</option>
+            <option value="0">Huelva</option>
+            <option value="1">Sevilla</option>
+            <option value="2">Cadiz</option>
+        </select></p>
+    <p>Pueblos: <select name="pueblos" id="pueblos">
+        </select></p>
+</body>
+
+</html>
