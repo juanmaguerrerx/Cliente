@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="shortcut icon"
+        href="./images/png-transparent-computer-icons-web-search-engine-google-search-iphone-iphone-electronics-search-engine-optimization-logo.png">
+    <title>Buscador de Enlaces</title>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="./images/articulos4_11686.png" alt="Logo">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Buscador</label>
+        <input type="text" class="form-control" name="busca" id="busca" aria-describedby="helpId"
+            placeholder="Buscar enlaces" />
+        <button type="button" id="btnBuscar" class="btn btn-primary" onclick="buscar()" data-bs-toggle="modal"
+        data-bs-target="#modalLinks">
+            Buscar
+        </button>
+    </div>
+
+    <div id="btnSug">
+        <button type="button" id="sugerir" class="btn btn-outline-warning" data-bs-toggle="modal"
+            data-bs-target="#modalSugerir">
+            Sugerir enlace
+        </button>
+
+        <div class="modal fade" id="modalSugerir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabelSugerir">Sugerir Enlace</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="sugEnlace">
+                            <div class="mb-3">
+                                <label for="titulo" class="form-label">Titulo:</label>
+                                <input type="text" class="form-control" id="titulo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="url" class="form-label">URL:</label>
+                                <input type="text" class="form-control" id="url" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="palabrasClave" class="form-label">Palabras Clave: <br> (separadas por una
+                                    coma p.e: Futbol,Porteria,Messi)</label>
+                                <input type="text" class="form-control" id="palabrasClave">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inCate" class="form-label">Categoria:</label>
+                                <!-- <select class="form-select form-select-lg" name="selCategoria" id="selCategoria" onchange="obtenerSubCat(this)" required>
+
+                                </select> -->
+                                <input type="text" class="form-control" id="inCat">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inSubCat" class="form-label">Subcategoria:</label>
+                                <!-- <select class="form-select form-select-lg" name="selSubCategoria" id="selSubCategoria" required>
+
+                                </select> -->
+                                <input type="text" class="form-control" id="inSubCat">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="sugEnlace()">Sugerir Enlace</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalLinks" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabelLinks">Links</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Enlaces encontrados: </h2>
+                        <div id="enlaces"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="contEn">
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./script/scripts.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <style>
+        .cont {
+            width: 70px;
+            height: 20px;
+            border: 1px solid black;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Ejercicio 1</h1>
+    </header>
+    <div>
+        <div class="cont"></div>
+        <button onclick="intercambiar(0,1)">&lt;-&gt;</button>
+        <div class="cont"></div>
+        <button onclick="intercambiar(1,2)">&lt;-&gt;</button>
+        <div class="cont"></div>
+        <button onclick="intercambiar(2,3)">&lt;-&gt;</button>
+        <div class="cont"></div>
+        <button onclick="intercambiar(3,4)">&lt;-&gt;</button>
+        <div class="cont"></div>
+    </div>
+    <br>
+    <button onclick="comprobar()">Comprobar</button><span id="check"></span>
+    <div id="invertir"></div>
+<br><br><br>
+    <button onclick="ordenar()">Ordenar</button>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

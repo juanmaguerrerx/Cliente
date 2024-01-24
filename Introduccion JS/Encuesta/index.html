@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+    <script src="main.js"></script>
+    <style>
+        img{
+            width: 1px;
+            height: 30px;
+        }
+        div{
+            display: inline ;
+        }
+        p{
+            display: inline;
+        }
+        input{
+            width: 40px;
+            
+        }
+        .valor{
+            margin-right: 20px;
+        }
+        img{
+            display: block;
+            margin-left: 20px
+        }
+    </style>
+</head>
+<body>
+    <!-- Encuesta si/no/nsnc    imagen tipo barra progreso
+    -si 
+    -no 
+    -nsnc  -->
+    <h1>ENCUESTA</h1>
+    <form name="encuesta" id="encuesta">
+        <div id="opciones">
+        <input type="radio" name="encuesta" id="si" value="SI"><div class="valor"> -> SIU</div><p id="votosSi"></p><img src="images/U600_9_881x513.jpeg" id="img_si">
+        <input type="radio" name="encuesta" id="no" value="NO"><div class="valor"> -> NO</div><p id="votosNo"></p> <img src="images/700x511_SliderInterior.jpg" id="img_no">
+        <input type="radio" name="encuesta" id="nsnc" value="NS/NC"><div class="valor">-> NS/NC</div><p id="votosNSNC"></p><img src="images/azul-color.png" id="img_nsnc">
+        </div>
+        Añadir opcion <input type="text" name="texto" id="opcion"> <button onclick="nuevaOpcion()">OK</button>
+
+    </form>
+    <br>
+    <button onclick="votar()">VOTAR</button>
+    <p>VOTOS TOTALES:</p>
+    <div id="votosTotales"></div>
+</body>
+</html>

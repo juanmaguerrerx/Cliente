@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formu</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <h1>Formulario</h1>
+    <form action="" onsubmit="return validar()">
+        <p><input type="text" id="nombre" placeholder="Nombre"></p>
+        <p><input type="text" id="numero" placeholder="Numero"></p>
+        <p>
+            <select name="select" id="select"> <span id="mensajeSelect"></span>
+                <option value="">-Selecciona una opcion-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </p>
+        <p><input type="text" name="mail" id="mail" placeholder="Email"><span id="spanMail"></span></p>
+        <input type="submit" value="Validar">
+    </form>
+</body>
+
+</html>

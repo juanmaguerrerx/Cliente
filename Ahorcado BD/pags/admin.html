@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon"
+        href="../game/images/pngtree-flat-vector-of-black-hangmans-noose-for-suicide-or-lynching-vector-png-image_44501344.jpg">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+    <script>
+        console.log(localStorage.getItem("userName"));
+        if (localStorage.getItem("userName") != "admin") {
+            location.href = "../index.html";
+        }
+    </script>
+    <header>
+        <!-- Nav tabs -->
+        <span id="mensajePalabra"></span>
+        <div id="cabeza">
+            AHORCADO
+        </div>
+        <p id="sub">Admin</p>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">Usuarios</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false">Palabras</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button"
+                    role="tab" aria-controls="messages" aria-selected="false">Categorías</button>
+            </li>
+        </ul>
+    </header>
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        <div class="modal fade" id="confirmarBorradoUser" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabelUser">Confirmar borrado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que quieres borrar este elemento?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" onclick="delUser()">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabelModUser">Editar Usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contenido del formulario de edición -->
+                        <form id="modiUser">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="usuario" class="form-label">Usuario:</label>
+                                <input type="text" class="form-control" id="usuario">
+                            </div>
+                            <div class="mb-3">
+                                <label for="pass" class="form-label">Contraseña:</label>
+                                <input type="password" class="form-control" id="txtPassword">
+                                <div class="input-group-append">
+                                    <button id="show_password" class="btn btn-primary" type="button"
+                                        onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span></button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="points" class="form-label">Puntos:</label>
+                                <input type="number" class="form-control" id="points">
+                            </div>
+                            <p id="campos"></p>
+                            <!-- Puedes agregar más campos según tu necesidad -->
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="modUser()">Guardar Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <table id="usuarios" class="display">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Puntos</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+            </table>
+
+
+        </div>
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <table id="palabras" class="display">
+                <thead>
+                    <tr>
+                        <th>Palabra</th>
+                        <th>Categoría</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+            </table>
+            <a href="./anadir.html"><button name="" id="btnAnadir" class="btn btn-primary" role="button">Añadir
+                    palabra</button></a>
+        </div>
+        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+
+
+            <div class="modal fade" id="confirmarBorrado" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar borrado</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Estás seguro de que quieres borrar este elemento? <strong>Se borrarán todas las palabras
+                                correspondientes a esa categoria</strong>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" onclick="delCat()">Borrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <table id="categorias" class="display">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+            </table>
+            <a href="./anadirCat.html"><button name="" id="btnAnadirCat" class="btn btn-primary" role="button">Añadir
+                    categoria</button></a>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+        </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="../scripts/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siete</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- 7) Leer una cadena de texto mediante el método prompt() y generar un array con las palabras que contiene.
+         Posteriormente, mostrar la siguiente información: Número de palabras, Primera palabra y última palabra, 
+         Las palabras colocadas en orden inverso, Las palabras ordenadas de la a la z y Las palabras ordenadas de la z a la a. -->
+
+         <script>
+            var cadena = prompt("Escriba una cadena de texto");
+
+            var numeroPalabras = numPal(cadena);
+            var texto = "Tiene "+numeroPalabras+" palabras"
+            alert(texto);
+            
+            var primera = first(cadena);
+            var ultima = last(cadena);
+            var texto = "La primera palabra es "+primera+" y la ultima es "+ultima;
+            alert(texto);
+
+            var inversa = reversa(cadena);
+            var texto = "El texto inverso es: "+ inversa.join("");
+            alert(texto);
+
+            var ordenAZ = ordenAZ(cadena);
+            var texto = "El texto ordenado (A-Z) es: "+ordenAZ;
+            alert(texto);
+
+            var ordenZA = ordenZA(cadena);
+            var texto = "El texto ordenado (Z-A) es: "+ordenZA;
+            alert(texto);
+         </script>
+
+         <p id="numeroPalabras"></p>
+         <p id="firstLast"></p>
+         <p id="inverso"></p>
+         <p id="ordenAZ"></p>
+         <p id="ordenZA"></p>
+</body>
+</html>
