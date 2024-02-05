@@ -1,9 +1,9 @@
 <script setup>
-import DashBoard from '../components/DashBoard.vue'
+import Login from '../components/Login.vue'
 </script>
 
 <template>
   <main>
-    <DashBoard></DashBoard>
+    <Login></Login>
   </main>
 </template>
