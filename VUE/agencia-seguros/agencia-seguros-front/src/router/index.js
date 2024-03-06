@@ -17,7 +17,7 @@ const routes = [
         component: () => import('@/views/Polizas.vue') // Vista Polzias
       },
       {
-        path: 'filtro',
+        path: 'filtros',
         name: 'filtros',
         component: () => import('@/views/Filtro.vue') // Vista Filtros
       }

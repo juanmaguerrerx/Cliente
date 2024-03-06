@@ -39,8 +39,6 @@ class ClientesCtrl extends Controller
             $cliente->telefono = $request->telefono;
             $cliente->ciudad = $request->ciudad;
             $cliente->codigo_postal = $request->codigo_postal;
-            $cliente->provincia = $request->provincia;
-            $cliente->municipio = $request->municipio;
             $cliente->empresa = $request->empresa;
 
             $cliente->save();
@@ -88,8 +86,6 @@ class ClientesCtrl extends Controller
             $cliente->email = $request->email;
             $cliente->telefono = $request->telefono;
             $cliente->ciudad = $request->ciudad;
-            $cliente->provincia = $request->provincia;
-            $cliente->municipio = $request->municipio;
             $cliente->codigo_postal = $request->codigo_postal;
             $cliente->empresa = $request->empresa;
 

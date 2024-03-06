@@ -24,8 +24,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/**
+ * Table clientes
+ * methods: GET,POST,PATCH,DELETE
+ */
 Route::apiResource('clientes',ClientesCtrl::class);
+
+/**
+ * Table polizas
+ * methods: methods: GET,POST,PATCH,DELETE
+ */
 Route::apiResource('polizas',PolizasCtrl::class);
+
+/**
+ * Table pagos
+ * methods: GET,POST,PATCH,DELETE
+ */
 Route::apiResource('pagos',PagosCtrl::class);
-Route::apiResource('provincias',ProvinciasCtrl::class);
+
+/**
+ * Table PROVINCIAS
+ * method: GET
+ */
+Route::apiResource('provincias', ProvinciasCtrl::class);
+
+/**
+ * Table MUNICIPIOS
+ * method: POST
+ */
 Route::apiResource('municipios',MunicipiosCtrl::class);

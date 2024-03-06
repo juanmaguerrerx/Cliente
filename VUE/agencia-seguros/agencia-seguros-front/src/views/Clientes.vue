@@ -13,15 +13,12 @@
             <Column field="email" header="Email" sortable></Column>
             <Column field="telefono" header="Telefono" sortable></Column>
             <Column field="ciudad" header="Ciudad" sortable></Column>
-            <Column field="provincia" header="Provincia" sortable></Column>
-            <Column field="municipio" header="Municipio" sortable></Column>
             <Column field="empresa" header="Tipo" sortable>
                 <template #body="slotProps">
                     <Tag :value="slotProps.data.empresa" :severity="getSeverity(slotProps.data.empresa)" />
                 </template>
             </Column>
             <Column header="Opciones">
-
                 <template #body="slotProps">
                     <div class="bg-orange-300 p-1 m-1 w-min rounded">
                         <Button icon="bi bi-pencil-square" @click="edit(slotProps.data.id)" />
@@ -43,8 +40,7 @@
                         <Column field="numero" header="Nombre" sortable></Column>
                         <Column field="estado" header="Estado" sortable>
                             <template #body="slotProps">
-                                <Tag :value="slotProps.data.estado"
-                                    :severity="getSeverityPago(slotProps.data.estado)" />
+                                <Tag :value="slotProps.data.estado" :severity="getSeverityPago(slotProps.data.estado)" />
                             </template>
                         </Column>
                         <Column field="notas" header="Notas" sortable></Column>
@@ -72,9 +68,10 @@
             <span class="p-text-secondary block mb-5 text-green-600">Información Personal</span>
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="nombre" class="font-semibold w-6rem">Cliente: </label>
-                <InputText v-model="clienteNuevo.nombre" disabled class="w-full md:w-14rem" />
-
-
+                <InputText v-model="clienteNuevo.nombre" disabled
+                    class="w-full md:w-14rem" />
+                
+        
 
             </div>
 
@@ -102,10 +99,11 @@
 
             <div class="flex justify-content-end gap-2 mt-5 ml-28 align-items-center">
                 <Button type="button" label="Cancel" @click="visiblePoliza = false"></Button>
-                <Button type="button" label="Crear" raised class="mr-2 p-2 text-green-600"
-                    @click="crearPoliza"></Button>
+                <Button type="button" label="Crear" raised class="mr-2 p-2 text-green-600" @click="crearPoliza"></Button>
             </div>
         </Dialog>
+
+
 
 
 
@@ -128,16 +126,6 @@
                 <InputText id="ciudad" v-model="clienteNuevo.ciudad" class="flex-auto p-1" autocomplete="off" />
             </div>
             <div class="flex align-items-center gap-3 mb-3">
-                <label for="provincia" class="font-semibold w-6rem">Provincia: </label>
-                <Dropdown v-model="clienteNuevo.provincia" :options="provincias" optionLabel="Provincia" filter
-                    placeholder="Seleccionar Provincia" @change="fetchMunicipios" />
-            </div>
-            <div class="flex align-items-center gap-3 mb-3">
-                <label for="municipio" class="font-semibold w-6rem">Municipio: </label>
-                <Dropdown v-model="clienteNuevo.municipio" filter :options="localidades" optionLabel="Municipio"
-                    placeholder="Seleccionar Municipios" />
-            </div>
-            <div class="flex align-items-center gap-3 mb-3">
                 <label for="codigo_postal" class="font-semibold w-6rem">Código Postal: </label>
                 <InputMask id="codigo_postal" class="p-1 m-2" v-model="clienteNuevo.codigo_postal" mask="99-999" />
             </div>
@@ -147,8 +135,7 @@
             </div>
             <div class="flex justify-content-end gap-2 mt-5 ml-28 align-items-center">
                 <Button type="button" label="Cancel" @click="visible = false"></Button>
-                <Button type="button" label="Crear" raised class="mr-2 p-2 text-blue-700"
-                    @click="crearCliente"></Button>
+                <Button type="button" label="Crear" raised class="mr-2 p-2 text-blue-700" @click="crearCliente"></Button>
             </div>
         </Dialog>
 
@@ -171,16 +158,6 @@
                 <InputText id="ciudad" class="flex-auto p-1" v-model="clienteNuevo.ciudad" autocomplete="off" />
             </div>
             <div class="flex align-items-center gap-3 mb-3">
-                <label for="provincia" class="font-semibold w-6rem">Provincia: </label>
-                <Dropdown v-model="clienteNuevo.provincia" filter :options="provincias" optionLabel="Provincia"
-                    placeholder="Seleccionar Provincia" @change="fetchMunicipios" />
-            </div>
-            <div class="flex align-items-center gap-3 mb-3">
-                <label for="municipio" class="font-semibold w-6rem">Municipio: </label>
-                <Dropdown v-model="clienteNuevo.municipio" filter :options="localidades" optionLabel="Municipio"
-                    placeholder="Seleccionar Municipio" />
-            </div>
-            <div class="flex align-items-center gap-3 mb-3">
                 <label for="codigo_postal" class="font-semibold w-6rem">Código Postal: </label>
                 <InputMask id="codigo_postal" v-model="clienteNuevo.codigo_postal" mask="99-999" placeholder="" />
             </div>
@@ -198,7 +175,7 @@
 
     </div>
 </template>
-
+  
 <script>
 import DataTable from "primevue/datatable"
 import Dialog from "primevue/dialog"
@@ -250,8 +227,6 @@ export default {
                 email: null,
                 telefono: null,
                 ciudad: null,
-                provincia: null,
-                municipio: null,
                 codigo_postal: null,
                 empresa: null,
             },
@@ -262,41 +237,18 @@ export default {
                 { tipo: 'Empresa', valor: '1' },
             ],
             expandedRows: [],
-            provincias: [],
-            localidades: [],
+
         };
     },
     mounted() {
         this.fetchUsers();
-        this.fetchProvincias();
     },
     methods: {
-        async fetchMunicipios() {
-            try {
-                const response = await api.get('municipios');
-                const allMunicipios = response.data;
-
-                // Filter municipalities based on the selected province
-                this.localidades = allMunicipios.filter(municipio => municipio.idProvincia == this.clienteNuevo.provincia.idProvincia);
-
-                console.log(this.localidades);
-            } catch (error) {
-                console.error('Error fetching municipalities:', error);
-            }
-        },
-        async fetchProvincias() {
-            try {
-                const response = await api.get('provincias');
-                this.provincias = response.data;
-            } catch (error) {
-                console.error('Error fetching provinces:', error);
-            }
-        },
-        edit(id) {
+        edit(id){
             this.obtenerCliente(id);
             this.editVisible = true;
         },
-        newPoliza(cliente_id) {
+        newPoliza(cliente_id){
             this.obtenerCliente(cliente_id);
 
             this.visiblePoliza = true;
@@ -338,8 +290,6 @@ export default {
                 ciudad: null,
                 codigo_postal: null,
                 empresa: null,
-                provincia: null,
-                municipio: null,
             },
                 this.visible = true;
         },
@@ -393,7 +343,6 @@ export default {
                 .then(response => {
                     // Asignar los datos del cliente a clienteNuevo
                     this.clienteNuevo = response.data;
-
                     // Abrir el modal de edición
                     // this.editVisible = true;
                     console.log(this.clienteNuevo);
@@ -405,9 +354,6 @@ export default {
         enviarClienteMod() {
             console.log(this.clienteNuevo, this.clienteNuevo.id);
             this.clienteNuevo.empresa = this.tipoSelected.valor;
-            this.clienteNuevo.provincia = this.clienteNuevo.provincia.Provincia;
-            this.clienteNuevo.municipio = this.clienteNuevo.municipio.Municipio;
-            console.log(this.clienteNuevo);
             api.patch(`clientes/${this.clienteNuevo.id}`, this.clienteNuevo)
                 .then(response => {
                     console.log(response);
@@ -439,8 +385,6 @@ export default {
         crearCliente() {
             // Asignar el valor de empresa directamente desde tipoSelected.valor
             this.clienteNuevo.empresa = this.tipoSelected.valor;
-            this.clienteNuevo.provincia = this.clienteNuevo.provincia.Provincia;
-            this.clienteNuevo.municipio = this.clienteNuevo.municipio.Municipio;
             // Cerrar el modal después de asignar todos los valores
             this.visible = false;
             console.log(this.clienteNuevo);
@@ -483,5 +427,6 @@ export default {
     }
 }
 </script>
-
+  
 <style scoped></style>
+  

@@ -62,7 +62,7 @@
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="fecha_pago" class="font-semibold w-6rem">Fecha Pago: </label>
                 <Calendar v-model="nuevoPago.fecha_pago" :maxDate="maxDate" showButtonBar showIcon iconDisplay="input"
-                    :dateFormat="yyyy - mm - dd" inputId="icondisplay" />
+                    inputId="icondisplay" />
             </div>
 
             <div class="flex justify-content-end gap-2 mt-5 ml-28 align-items-center">
@@ -349,14 +349,6 @@ export default {
             this.visiblePago = true;
         },
         confirmNewPago() {
-            // Convertir la fecha a un formato ISO 8601
-            const fechaISO = new Date(this.nuevoPago.fecha_pago).toISOString();
-            // Extraer solo la parte de la fecha
-            const fechaFormateada = fechaISO.split('T')[0];
-
-            // Asignar la fecha formateada al objeto nuevoPago
-            this.nuevoPago.fecha_pago = fechaFormateada;
-
             console.log(this.nuevoPago);
             this.visiblePago = false;
             api.post('pagos', this.nuevoPago)
